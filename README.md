@@ -28,6 +28,14 @@ Example packages to install in Ubuntu*:
     libgettextpo-dev autopoint gettext libncurses5-dev libncursesw5-dev libtool-bin \
     dh-autoreconf autoconf-archive pkg-config
 
+*Build dependence libtraceevent and libtracefs on ubuntu22.04*
+```
+git clone https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git/
+cd libtraceevent; make; sudo make install; cd ..;
+
+git clone https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/
+cd libtracefs; make; sudo make install; cd ..;
+```
 
 ## Building PowerTOP
 
@@ -39,7 +47,7 @@ source files are modified.
 To build PowerTOP from the cloned source, use the following commands:
 
     ./autogen.sh
-    ./configure
+    ./configure LDFLAGS=-static
     make
 
 
